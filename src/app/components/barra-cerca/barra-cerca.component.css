@@ -1,0 +1,36 @@
+input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+input.ng-invalid.ng-touched {
+  border-color: red;
+}
+
+input.ng-valid.ng-touched {
+  border-color: green;
+}
+
+small {
+  color: red;
+  display: block;
+  margin-bottom: 8px;
+}
+
+button {
+  padding: 8px 16px;
+  margin: 1px;
+  border: none;
+  border-radius: 6px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}

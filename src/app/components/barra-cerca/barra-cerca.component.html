@@ -1,0 +1,30 @@
+<form #formCerca="ngForm" (ngSubmit)="onSubmit()">
+  <input
+    type="text"
+    name="cerca"
+    [(ngModel)]="textCerca"
+    #cercaInput="ngModel"
+    required
+    minlength="3"
+    placeholder="Introdueix mínim 3 caràcters"
+    aria-describedby="ajuda"
+  />
+
+  <small id="ajuda"> Introdueix mínim 3 caràcters. </small>
+
+  <div *ngIf="cercaInput.invalid && cercaInput.touched" aria-live="assertive">
+    <small *ngIf="cercaInput.errors?.['required']">El camp és obligatori</small>
+    <small *ngIf="cercaInput.errors?.['minlength']">Mínim 3 caràcters</small>
+  </div>
+
+  <button
+    type="submit"
+    aria-label="Executar Cerca"
+    [disabled]="formCerca.invalid"
+  >
+    Cercar
+  </button>
+  <button type="button" aria-label="Netejar Cerca" (click)="onReset()">
+    Netejar
+  </button>
+</form>

@@ -1,0 +1,19 @@
+<div class="card">
+  <h3>{{ element.serveiSolicitat | uppercase }}</h3>
+  <p>{{ element.descripcio | lowercase }}</p>
+  <p>
+    <strong>Categoria de demanda:</strong>
+    {{ element.categoriaSolicitada.join(", ") }}
+  </p>
+  <p>
+    <strong>Categoria ofertada:</strong>
+    {{ element.categoriaOfertada.join(", ") }}
+  </p>
+  <p>
+    <strong>Servei ofertat:</strong>
+    {{ element.serveiOfert }}
+  </p>
+
+  <p><strong>Autor:</strong> {{ element.autor }}</p>
+  <p><strong>Ubicació:</strong> {{ element.ubicacio || "Online" }}</p>
+</div>
