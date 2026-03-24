@@ -12,6 +12,7 @@ import { Servei } from './models/servei.model';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
+  title = 'ioc-angular-colab-jaumepons';
   elements: Servei[] = DADES;
   elementsFiltrats: Servei[] = [...this.elements];
 

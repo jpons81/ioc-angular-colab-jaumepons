@@ -7,10 +7,7 @@
     required
     minlength="3"
     placeholder="Introdueix mínim 3 caràcters"
-    aria-describedby="ajuda"
   />
-
-  <small id="ajuda"> Introdueix mínim 3 caràcters. </small>
 
   <div *ngIf="cercaInput.invalid && cercaInput.touched" aria-live="assertive">
     <small *ngIf="cercaInput.errors?.['required']">El camp és obligatori</small>
