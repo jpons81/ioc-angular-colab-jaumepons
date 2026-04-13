@@ -5,7 +5,7 @@
 <div class="llista" *ngIf="elements.length > 0">
   <app-targeta-servei
     *ngFor="let element of elements; trackBy: trackById"
-    [element]="element"
+    [servei]="element"
   >
   </app-targeta-servei>
 </div>

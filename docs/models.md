@@ -1,0 +1,12 @@
+ServeiApiResponse | ServeiCataleg | Tipus
+id | id | number
+serveiSolicitat | serveiSolicitat | string
+descripcio | descripcio | string
+categoriaSolicitada | categoriaSolicitada | Categoria[]
+serveiOfert | serveiOfert | string
+categoriaOfertada | categoriaOfertada | Categoria[]
+autor | autor | string
+data | dataCreació | Date
+actiu | esActiu | boolean
+ubicacio | ubicacio | string
+popular | popular | boolean

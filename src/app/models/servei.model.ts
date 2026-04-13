@@ -1,6 +1,19 @@
 import { Categoria } from './category.enum';
 
-export interface Servei {
+export interface ServeiApiResponse {
+  id: number;
+  serveiSolicitat: string;
+  descripcio: string;
+  categoriaSolicitada: Categoria[];
+  serveiOfert: string;
+  categoriaOfertada: Categoria[];
+  autor: string;
+  dataCreació: string;
+  esActiu: boolean;
+  ubicacio?: string;
+  popular: boolean;
+}
+export interface ServeiCataleg {
   id: number;
   serveiSolicitat: string;
   descripcio: string;
@@ -11,4 +24,5 @@ export interface Servei {
   dataCreació: Date;
   esActiu: boolean;
   ubicacio?: string;
+  popular: boolean;
 }

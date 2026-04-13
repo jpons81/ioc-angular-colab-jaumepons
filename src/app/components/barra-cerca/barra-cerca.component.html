@@ -1,4 +1,4 @@
-<form #formCerca="ngForm" (ngSubmit)="onSubmit()">
+<form #formCerca="ngForm">
   <input
     type="text"
     name="cerca"
@@ -7,6 +7,7 @@
     required
     minlength="3"
     placeholder="Introdueix mínim 3 caràcters"
+    (input)="onInput()"
   />
 
   <div *ngIf="cercaInput.invalid && cercaInput.touched" aria-live="assertive">
@@ -14,13 +15,6 @@
     <small *ngIf="cercaInput.errors?.['minlength']">Mínim 3 caràcters</small>
   </div>
 
-  <button
-    type="submit"
-    aria-label="Executar Cerca"
-    [disabled]="formCerca.invalid"
-  >
-    Cercar
-  </button>
   <button type="button" aria-label="Netejar Cerca" (click)="onReset()">
     Netejar
   </button>
