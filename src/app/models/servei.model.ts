@@ -12,6 +12,7 @@ export interface ServeiApiResponse {
   esActiu: boolean;
   ubicacio?: string;
   popular: boolean;
+  notes: string[];
 }
 export interface ServeiCataleg {
   id: number;
@@ -25,4 +26,5 @@ export interface ServeiCataleg {
   esActiu: boolean;
   ubicacio?: string;
   popular: boolean;
+  notes: string[];
 }

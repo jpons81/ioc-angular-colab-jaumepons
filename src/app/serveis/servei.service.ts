@@ -22,19 +22,20 @@ export class ServeiService {
     this.carregant.set(true);
     this.error.set(null);
 
-    this.http
-      .get<ServeiApiResponse[]>(`${this.apiUrl}?popular=true`)
-      .subscribe({
-        next: (res) => {
-          const adaptats = adaptarServeisApi(res);
-          this.serveis.set(adaptats);
-          this.carregant.set(false);
-        },
-        error: () => {
-          this.error.set('No s’han pogut carregar els serveis populars');
-          this.carregant.set(false);
-        },
-      });
+    this.http.get<ServeiApiResponse[]>(this.apiUrl).subscribe({
+      next: (res) => {
+        const adaptats = adaptarServeisApi(res);
+
+        const populars = adaptats.filter((s) => s.popular === true);
+
+        this.serveis.set(populars);
+        this.carregant.set(false);
+      },
+      error: () => {
+        this.error.set('No s’han pogut carregar els serveis populars');
+        this.carregant.set(false);
+      },
+    });
   }
 
   cercar(terme: string): void {

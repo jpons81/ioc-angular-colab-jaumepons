@@ -1,0 +1,34 @@
+<div class="panell-preferits">
+  <h3>Preferits ({{ preferitsService.totalPreferits() }})</h3>
+
+  <div *ngFor="let servei of preferitsService.preferits()">
+    <h4>{{ servei.serveiSolicitat }}</h4>
+
+    <div class="notes">
+      <div
+        *ngFor="let notaCtrl of formularis[servei.id].controls; let i = index"
+        class="nota-item"
+      >
+        <input
+          type="text"
+          [formControl]="notaCtrl"
+          (blur)="guardarNotes(servei.id)"
+        />
+
+        <button class="eliminar" (click)="eliminarNota(servei.id, i)">x</button>
+
+        <div class="error" *ngIf="notaCtrl.invalid && notaCtrl.touched">
+          La nota ha de tenir mínim 3 caràcters.
+        </div>
+      </div>
+
+      <button class="afegir" (click)="afegirNota(servei.id)">
+        + Afegir nota
+      </button>
+    </div>
+  </div>
+
+  <p *ngIf="preferitsService.totalPreferits() === 0" class="buit">
+    Encara no hi ha preferits.
+  </p>
+</div>

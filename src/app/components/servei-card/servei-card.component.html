@@ -1,0 +1,26 @@
+<div class="card">
+  <button class="preferit-btn" (click)="togglePreferit()">
+    <span [class.preferit]="preferitsService.esPreferit(servei.id)">★</span>
+  </button>
+
+  <h3>{{ servei.serveiSolicitat | uppercase }}</h3>
+  <p>{{ servei.descripcio | lowercase }}</p>
+
+  <p>
+    <strong>Categoria de demanda:</strong>
+    {{ servei.categoriaSolicitada.join(", ") }}
+  </p>
+
+  <p>
+    <strong>Categoria ofertada:</strong>
+    {{ servei.categoriaOfertada.join(", ") }}
+  </p>
+
+  <p>
+    <strong>Servei ofertat:</strong>
+    {{ servei.serveiOfert }}
+  </p>
+
+  <p><strong>Autor:</strong> {{ servei.autor }}</p>
+  <p><strong>Ubicació:</strong> {{ servei.ubicacio || "Online" }}</p>
+</div>

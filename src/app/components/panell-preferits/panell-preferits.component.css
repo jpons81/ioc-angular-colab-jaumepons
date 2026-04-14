@@ -1,0 +1,32 @@
+.panell-preferits {
+  width: 240px;
+  background: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  max-height: 100%;
+  overflow-y: auto;
+}
+
+.panell-preferits h3 {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.panell-preferits ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.panell-preferits li {
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+  font-size: 14px;
+}
+
+.buit {
+  margin-top: 16px;
+  color: #777;
+  font-style: italic;
+}

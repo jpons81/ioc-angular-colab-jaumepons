@@ -5,14 +5,14 @@
     [(ngModel)]="textCerca"
     #cercaInput="ngModel"
     required
-    minlength="3"
-    placeholder="Introdueix mínim 3 caràcters"
+    minlength="2"
+    placeholder="Introdueix mínim 2 caràcters"
     (input)="onInput()"
   />
 
   <div *ngIf="cercaInput.invalid && cercaInput.touched" aria-live="assertive">
     <small *ngIf="cercaInput.errors?.['required']">El camp és obligatori</small>
-    <small *ngIf="cercaInput.errors?.['minlength']">Mínim 3 caràcters</small>
+    <small *ngIf="cercaInput.errors?.['minlength']">Mínim 2 caràcters</small>
   </div>
 
   <button type="button" aria-label="Netejar Cerca" (click)="onReset()">

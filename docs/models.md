@@ -10,3 +10,4 @@ data | dataCreació | Date
 actiu | esActiu | boolean
 ubicacio | ubicacio | string
 popular | popular | boolean
+notes | notes | string[]

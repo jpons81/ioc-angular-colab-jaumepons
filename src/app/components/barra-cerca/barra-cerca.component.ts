@@ -15,7 +15,7 @@ export class BarraCercaComponent {
   textCerca: string = '';
 
   onInput() {
-    this.cercaText.emit(this.textCerca); // 🔥 Emissió reactiva
+    this.cercaText.emit(this.textCerca);
   }
 
   onReset() {

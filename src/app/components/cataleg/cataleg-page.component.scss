@@ -29,7 +29,6 @@ button:hover {
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
 }
 
-/* Spinner */
 .spinner {
   width: 40px;
   height: 40px;
@@ -46,10 +45,20 @@ button:hover {
   }
 }
 
+.contenidor-cataleg {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  margin-top: 24px;
+}
+
 .llista-serveis {
+  flex: 1;
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
-  justify-content: center;
-  padding: 20px;
+}
+
+.llista {
+  margin-right: 280px;
 }

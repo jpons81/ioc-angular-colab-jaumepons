@@ -1,18 +1,17 @@
-<app-barra-cerca (cercaText)="serveiService.cercar($event)"></app-barra-cerca>
+<app-formulari-cerca
+  (cerca)="serveiService.cercar($event)"
+></app-formulari-cerca>
 
-<!-- Estat: Carregant -->
 <div *ngIf="serveiService.carregant()" class="estat carregant">
   <div class="spinner"></div>
   <p>Carregant serveis...</p>
 </div>
 
-<!-- Estat: Error -->
 <div *ngIf="serveiService.error()" class="estat error">
   <p>{{ serveiService.error() }}</p>
   <button (click)="reintentar()">Reintentar</button>
 </div>
 
-<!-- Estat: Sense resultats -->
 <p
   *ngIf="
     !serveiService.carregant() &&
@@ -24,17 +23,20 @@
   No s’han trobat serveis.
 </p>
 
-<!-- Llista de serveis -->
 <div
+  class="contenidor-cataleg"
   *ngIf="
     !serveiService.carregant() &&
     !serveiService.error() &&
     serveiService.serveis().length > 0
   "
-  class="llista-serveis"
 >
-  <app-targeta-servei
-    *ngFor="let servei of serveiService.serveis()"
-    [servei]="servei"
-  ></app-targeta-servei>
+  <div class="llista-serveis">
+    <app-servei-card
+      *ngFor="let servei of serveiService.serveis()"
+      [servei]="servei"
+    ></app-servei-card>
+  </div>
+
+  <app-panell-preferits></app-panell-preferits>
 </div>

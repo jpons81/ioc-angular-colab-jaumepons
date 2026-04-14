@@ -1,8 +1,5 @@
 import { ServeiApiResponse, ServeiCataleg } from '../models/servei.model';
 
-/**
- * Adaptar un sol servei de l'API al model intern
- */
 export function adaptarServeiApi(api: ServeiApiResponse): ServeiCataleg {
   return {
     id: Number(api.id),
@@ -12,16 +9,14 @@ export function adaptarServeiApi(api: ServeiApiResponse): ServeiCataleg {
     serveiOfert: api.serveiOfert,
     categoriaOfertada: api.categoriaOfertada,
     autor: api.autor,
-    dataCreació: new Date(api.dataCreació), // 🔥 conversió important
-    esActiu: api.esActiu, // 🔥 canvi de nom
+    dataCreació: new Date(api.dataCreació),
+    esActiu: api.esActiu,
     ubicacio: api.ubicacio,
     popular: api.popular,
+    notes: api.notes,
   };
 }
 
-/**
- * Adaptar un array de serveis de l'API al model intern
- */
 export function adaptarServeisApi(
   apiResponses: ServeiApiResponse[],
 ): ServeiCataleg[] {
