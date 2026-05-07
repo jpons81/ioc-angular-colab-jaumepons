@@ -1,11 +1,11 @@
-<div *ngIf="servei; else noTrobat" class="detall-container">
-  <h2 class="titol">{{ servei.serveiSolicitat }}</h2>
-  <h3 class="subtitol">{{ servei.descripcio }}</h3>
+<div *ngIf="servei() as s; else noTrobat" class="detall-container">
+  <h2 class="titol">{{ s.serveiSolicitat }}</h2>
+  <h3 class="subtitol">{{ s.descripcio }}</h3>
 
   <div class="info">
-    <p><strong>Servei ofert:</strong> {{ servei.serveiOfert }}</p>
-    <p><strong>Ubicació:</strong> {{ servei.ubicacio }}</p>
-    <p><strong>Categoria:</strong> {{ servei.categoriaOfertada }}</p>
+    <p><strong>Servei ofert:</strong> {{ s.serveiOfert }}</p>
+    <p><strong>Ubicació:</strong> {{ s.ubicacio }}</p>
+    <p><strong>Categoria:</strong> {{ s.categoriaOfertada }}</p>
   </div>
 </div>
 

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ServeiCataleg } from '../../models/servei.model';
 import { PreferitsService } from '../../serveis/preferits.service';
@@ -9,6 +9,7 @@ import { PreferitsService } from '../../serveis/preferits.service';
   imports: [CommonModule],
   templateUrl: './servei-card.component.html',
   styleUrls: ['./servei-card.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ServeiCardComponent {
   @Input() servei!: ServeiCataleg;

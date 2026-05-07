@@ -1,3 +1,4 @@
+/* Estat general (carregant, error, sense resultats) */
 .estat {
   text-align: center;
   margin-top: 2rem;
@@ -22,13 +23,7 @@ button:hover {
   background: #125a9c;
 }
 
-.grid {
-  display: grid;
-  gap: 1rem;
-  padding: 1rem;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-}
-
+/* Spinner */
 .spinner {
   width: 40px;
   height: 40px;
@@ -45,26 +40,23 @@ button:hover {
   }
 }
 
+/* Contenidor principal */
 .contenidor-cataleg {
-  display: flex;
-  align-items: flex-start;
-  gap: 24px;
   margin-top: 24px;
 }
 
-.llista-serveis {
-  flex: 1;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
+/* Virtual scroll */
+.viewport {
+  height: calc(100vh - 220px);
+  width: 100%;
+  overflow: auto;
+  padding: 1rem;
 }
 
-.llista {
-  margin-right: 280px;
-}
-
+/* Cada targeta */
 .enllac-detall {
+  display: block;
   text-decoration: none;
   color: inherit;
-  display: block;
+  margin-bottom: 1.5rem;
 }

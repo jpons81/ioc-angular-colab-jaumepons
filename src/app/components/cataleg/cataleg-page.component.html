@@ -27,13 +27,13 @@
     serveiService.serveis().length > 0
   "
 >
-  <div class="llista-serveis">
+  <cdk-virtual-scroll-viewport itemSize="350" class="viewport">
     <a
-      *ngFor="let servei of serveiService.serveis()"
+      *cdkVirtualFor="let servei of serveiService.serveis()"
       [routerLink]="['/detall', servei.id]"
       class="enllac-detall"
     >
       <app-servei-card [servei]="servei"></app-servei-card>
     </a>
-  </div>
+  </cdk-virtual-scroll-viewport>
 </div>
