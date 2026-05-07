@@ -1,0 +1,19 @@
+<h2>Els meus preferits</h2>
+
+<div *ngIf="serveiService.carregant()">Carregant...</div>
+<div *ngIf="serveiService.error()">Error carregant serveis</div>
+
+<div class="contenidor-preferits">
+  <div class="llista-serveis">
+    <app-servei-card
+      *ngFor="let servei of preferitsComplets()"
+      [servei]="servei"
+    ></app-servei-card>
+  </div>
+
+  <div class="sidebar">
+    <app-panell-preferits
+      [preferits]="preferitsComplets()"
+    ></app-panell-preferits>
+  </div>
+</div>

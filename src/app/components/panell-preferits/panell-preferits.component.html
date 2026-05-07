@@ -1,30 +1,42 @@
 <div class="panell-preferits">
   <h3>Preferits ({{ preferitsService.totalPreferits() }})</h3>
 
-  <div *ngFor="let servei of preferitsService.preferits()">
-    <h4>{{ servei.serveiSolicitat }}</h4>
+  <div *ngIf="preferits && preferits.length > 0">
+    <div *ngFor="let servei of preferits">
+      <h4>{{ servei.serveiSolicitat }}</h4>
 
-    <div class="notes">
+      <!-- 🔥 SOLUCIÓ DEFINITIVA -->
       <div
-        *ngFor="let notaCtrl of formularis[servei.id].controls; let i = index"
-        class="nota-item"
+        class="notes"
+        *ngIf="formularis[servei.id] as formArray; else carregantFormulari"
       >
-        <input
-          type="text"
-          [formControl]="notaCtrl"
-          (blur)="guardarNotes(servei.id)"
-        />
+        <div
+          *ngFor="let notaCtrl of formArray.controls; let i = index"
+          class="nota-item"
+        >
+          <input
+            type="text"
+            [formControl]="notaCtrl"
+            (blur)="guardarNotes(servei.id)"
+          />
 
-        <button class="eliminar" (click)="eliminarNota(servei.id, i)">x</button>
+          <button class="eliminar" (click)="eliminarNota(servei.id, i)">
+            x
+          </button>
 
-        <div class="error" *ngIf="notaCtrl.invalid && notaCtrl.touched">
-          La nota ha de tenir mínim 3 caràcters.
+          <div class="error" *ngIf="notaCtrl.invalid && notaCtrl.touched">
+            La nota ha de tenir mínim 3 caràcters.
+          </div>
         </div>
+
+        <button class="afegir" (click)="afegirNota(servei.id)">
+          + Afegir nota
+        </button>
       </div>
 
-      <button class="afegir" (click)="afegirNota(servei.id)">
-        + Afegir nota
-      </button>
+      <ng-template #carregantFormulari>
+        <p style="font-size: 12px; color: #888">Carregant formulari...</p>
+      </ng-template>
     </div>
   </div>
 

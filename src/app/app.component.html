@@ -1,6 +1,27 @@
-<body>
-  <h1>Benvinguts a COLAB, un espai d'intercanvi personal</h1>
-  <p>Autor: Jaume Pons Calero</p>
+<h1>Benvinguts a COLAB, un espai d'intercanvi personal</h1>
+<p>Autor: Jaume Pons Calero</p>
 
-  <router-outlet></router-outlet>
-</body>
+<nav class="menu">
+  <div class="left">
+    <a routerLink="/cataleg" routerLinkActive="active">Catàleg</a>
+    <a routerLink="/cerca" routerLinkActive="active">Cerca</a>
+    <a routerLink="/preferits" routerLinkActive="active">Preferits</a>
+  </div>
+
+  <div class="right">
+    <!-- Si està autenticat -->
+    <span *ngIf="usuari$ | async as u; else noLogin">
+      <span class="welcome">Benvingut, {{ u?.nom }}</span>
+      <button class="logout" (click)="auth.logout()">Tancar sessió</button>
+    </span>
+
+    <!-- Si NO està autenticat -->
+    <ng-template #noLogin>
+      <a class="login-btn" routerLink="/login" routerLinkActive="active"
+        >Login</a
+      >
+    </ng-template>
+  </div>
+</nav>
+
+<router-outlet></router-outlet>

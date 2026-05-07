@@ -1,32 +1,124 @@
+/* ====== CONTENIDOR PRINCIPAL ====== */
+
 .panell-preferits {
-  width: 240px;
+  width: 320px;
   background: #ffffff;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 16px;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
   max-height: 100%;
   overflow-y: auto;
+  font-family: system-ui, sans-serif;
 }
+
+/* ====== TÍTOLS ====== */
 
 .panell-preferits h3 {
-  margin-top: 0;
-  margin-bottom: 16px;
+  margin: 0 0 16px 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #111827;
 }
 
-.panell-preferits ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+.panell-preferits h4 {
+  margin: 0 0 10px 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #374151;
 }
 
-.panell-preferits li {
-  padding: 8px 0;
-  border-bottom: 1px solid #eee;
-  font-size: 14px;
+/* ====== NOTES ====== */
+
+.notes {
+  margin-bottom: 1.5rem;
+  padding-left: 4px;
+  border-left: 3px solid #e5e7eb;
 }
 
+.nota-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.7rem;
+}
+
+/* Input modern */
+.nota-item input {
+  flex: 1;
+  padding: 0.45rem 0.6rem;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  background: #f9fafb;
+  font-size: 0.9rem;
+  transition: all 0.15s ease;
+}
+
+.nota-item input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  background: #ffffff;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.15);
+}
+
+/* Botó eliminar */
+.nota-item .eliminar {
+  background: #ef4444;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 0.35rem 0.55rem;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: background 0.15s ease;
+}
+
+.nota-item .eliminar:hover {
+  background: #dc2626;
+}
+
+/* Botó afegir */
+.afegir {
+  background: #3b82f6;
+  color: white;
+  border: none;
+  padding: 0.45rem 0.8rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  transition: background 0.15s ease;
+}
+
+.afegir:hover {
+  background: #2563eb;
+}
+
+/* Error */
+.error {
+  color: #ef4444;
+  font-size: 0.8rem;
+  margin-top: -0.3rem;
+}
+
+/* Estat buit */
 .buit {
   margin-top: 16px;
-  color: #777;
+  color: #6b7280;
   font-style: italic;
+  text-align: center;
+}
+
+/* Scroll suau */
+.panell-preferits::-webkit-scrollbar {
+  width: 6px;
+}
+
+.panell-preferits::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 10px;
+}
+
+.panell-preferits::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
 }

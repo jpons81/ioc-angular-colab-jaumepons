@@ -1,20 +1,93 @@
-body {
-  font-family: Arial, sans-serif;
-  background-color: #cadc3e;
-  margin: 0;
-  padding: 20px;
-}
+nav.menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 20px;
+  padding: 0.5rem 2rem;
+  background: #ffffff;
+  border-bottom: 1px solid #e5e5e5;
+  font-size: 1.1rem;
 
-h1 {
-  background-color: yellow;
-  color: #2c3e50;
-  text-align: center;
-  margin-top: 50px;
-}
+  .left,
+  .right {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
 
-p {
-  text-align: right;
-  font-size: 1.2em;
-  color: #34495e;
-  background-color: aqua;
+  a {
+    color: #444;
+    text-decoration: none;
+    position: relative;
+    padding-bottom: 4px;
+    transition:
+      color 0.2s ease,
+      text-decoration-color 0.2s ease;
+    cursor: pointer;
+
+    &:hover {
+      color: #000;
+      text-decoration: underline;
+      text-decoration-color: #0078ff;
+    }
+
+    &.active {
+      font-weight: 600;
+      color: #000;
+
+      &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -2px;
+        width: 100%;
+        height: 2px;
+        background: #0078ff;
+        border-radius: 2px;
+      }
+    }
+  }
+
+  .login-btn {
+    background: #0078ff;
+    color: white;
+    padding: 0.4rem 1rem;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition:
+      background 0.2s ease,
+      text-decoration-color 0.2s ease;
+
+    &:hover {
+      background: #005fcc;
+      text-decoration: underline;
+      text-decoration-color: #ffffff;
+    }
+  }
+
+  .logout {
+    background: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 0.4rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition:
+      background 0.2s ease,
+      text-decoration-color 0.2s ease;
+
+    &:hover {
+      background: #d93636;
+      text-decoration: underline;
+      text-decoration-color: #ffffff;
+    }
+  }
+
+  .welcome {
+    font-weight: 600;
+    color: #333;
+    padding-right: 10px;
+  }
 }

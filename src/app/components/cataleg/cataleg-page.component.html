@@ -1,7 +1,3 @@
-<app-formulari-cerca
-  (cerca)="serveiService.cercar($event)"
-></app-formulari-cerca>
-
 <div *ngIf="serveiService.carregant()" class="estat carregant">
   <div class="spinner"></div>
   <p>Carregant serveis...</p>
@@ -32,11 +28,12 @@
   "
 >
   <div class="llista-serveis">
-    <app-servei-card
+    <a
       *ngFor="let servei of serveiService.serveis()"
-      [servei]="servei"
-    ></app-servei-card>
+      [routerLink]="['/detall', servei.id]"
+      class="enllac-detall"
+    >
+      <app-servei-card [servei]="servei"></app-servei-card>
+    </a>
   </div>
-
-  <app-panell-preferits></app-panell-preferits>
 </div>

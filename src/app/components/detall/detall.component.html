@@ -1,0 +1,14 @@
+<div *ngIf="servei; else noTrobat" class="detall-container">
+  <h2 class="titol">{{ servei.serveiSolicitat }}</h2>
+  <h3 class="subtitol">{{ servei.descripcio }}</h3>
+
+  <div class="info">
+    <p><strong>Servei ofert:</strong> {{ servei.serveiOfert }}</p>
+    <p><strong>Ubicació:</strong> {{ servei.ubicacio }}</p>
+    <p><strong>Categoria:</strong> {{ servei.categoriaOfertada }}</p>
+  </div>
+</div>
+
+<ng-template #noTrobat>
+  <p class="no-trobat">El servei no existeix.</p>
+</ng-template>

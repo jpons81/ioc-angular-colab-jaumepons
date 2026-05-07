@@ -32,14 +32,22 @@ export class FormulariCercaComponent {
       ],
     });
 
+    // 🔥 Sempre emet el text (encara que hi hagi errors)
     this.form
       .get('termeCerca')!
       .valueChanges.pipe(debounceTime(400))
       .subscribe((valor) => {
         const text = (valor || '').trim();
-
         this.cerca.emit(text);
       });
+
+    // 🔥 Quan el camp és vàlid → torna a emetre el text
+    this.form.statusChanges.subscribe((status) => {
+      if (status === 'VALID') {
+        const text = (this.terme?.value || '').trim();
+        this.cerca.emit(text);
+      }
+    });
   }
 
   codiDisponibleValidator(): AsyncValidatorFn {
@@ -50,14 +58,10 @@ export class FormulariCercaComponent {
 
       this.validant = true;
 
-      return timer(500).pipe(
-        switchMap(() => {
-          const hiHaResultats = this.simularConsulta(control.value);
-          return of(hiHaResultats ? null : { sensResultats: true });
-        }),
-        map((resultat) => {
+      return timer(300).pipe(
+        map(() => {
           this.validant = false;
-          return resultat;
+          return null; // 🔥 mai marquem error per “no hi ha resultats”
         }),
       );
     };

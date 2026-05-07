@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { ServeiApiResponse, ServeiCataleg } from '../models/servei.model';
 import { environment } from '../../environments/environment';
 import { adaptarServeisApi } from '../adaptadors/servei.adaptador';
+import { map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -11,6 +12,7 @@ export class ServeiService {
   serveis = signal<ServeiCataleg[]>([]);
   carregant = signal<boolean>(true);
   error = signal<string | null>(null);
+  termeCerca = signal<string>('');
 
   private apiUrl = `${environment.apiUrl}/serveis`;
 
@@ -24,6 +26,7 @@ export class ServeiService {
 
     this.http.get<ServeiApiResponse[]>(this.apiUrl).subscribe({
       next: (res) => {
+        console.log('Resposta del servidor:', res);
         const adaptats = adaptarServeisApi(res);
 
         const populars = adaptats.filter((s) => s.popular === true);
@@ -38,11 +41,30 @@ export class ServeiService {
     });
   }
 
-  cercar(terme: string): void {
+  obtenirTots(): void {
+    this.carregant.set(true);
     this.error.set(null);
 
+    this.http.get<ServeiApiResponse[]>(this.apiUrl).subscribe({
+      next: (res) => {
+        const adaptats = adaptarServeisApi(res);
+        this.serveis.set(adaptats);
+        this.carregant.set(false);
+      },
+      error: () => {
+        this.error.set('No s’han pogut carregar els serveis');
+        this.carregant.set(false);
+      },
+    });
+  }
+
+  cercar(terme: string): void {
+    this.error.set(null);
+    this.termeCerca.set(terme);
+
     if (!terme.trim()) {
-      this.obtenirPopulars();
+      this.serveis.set([]);
+      this.carregant.set(false);
       return;
     }
 
@@ -68,5 +90,11 @@ export class ServeiService {
         },
       });
     }, 600);
+  }
+
+  getServeiById(id: number) {
+    return this.http
+      .get<ServeiApiResponse>(`${this.apiUrl}/${id}`)
+      .pipe(map((res) => adaptarServeisApi([res])[0] || null));
   }
 }
