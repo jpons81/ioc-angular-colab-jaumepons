@@ -32,7 +32,6 @@ export class FormulariCercaComponent {
       ],
     });
 
-    // 🔥 Sempre emet el text (encara que hi hagi errors)
     this.form
       .get('termeCerca')!
       .valueChanges.pipe(debounceTime(400))
@@ -41,7 +40,6 @@ export class FormulariCercaComponent {
         this.cerca.emit(text);
       });
 
-    // 🔥 Quan el camp és vàlid → torna a emetre el text
     this.form.statusChanges.subscribe((status) => {
       if (status === 'VALID') {
         const text = (this.terme?.value || '').trim();
@@ -61,7 +59,7 @@ export class FormulariCercaComponent {
       return timer(300).pipe(
         map(() => {
           this.validant = false;
-          return null; // 🔥 mai marquem error per “no hi ha resultats”
+          return null;
         }),
       );
     };

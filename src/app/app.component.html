@@ -9,13 +9,11 @@
   </div>
 
   <div class="right">
-    <!-- Si està autenticat -->
     <span *ngIf="usuari$ | async as u; else noLogin">
       <span class="welcome">Benvingut, {{ u?.nom }}</span>
       <button class="logout" (click)="auth.logout()">Tancar sessió</button>
     </span>
 
-    <!-- Si NO està autenticat -->
     <ng-template #noLogin>
       <a class="login-btn" routerLink="/login" routerLinkActive="active"
         >Login</a

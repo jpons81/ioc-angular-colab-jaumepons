@@ -20,7 +20,6 @@ export class AuthService {
   }
 
   login(email: string, contrasenya: string): boolean {
-    // Credencials de prova
     if (email === 'jaume@colab.net' && contrasenya === '1234') {
       this.usuariActual$.next({
         id: 1,

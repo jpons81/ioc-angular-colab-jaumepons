@@ -1,6 +1,5 @@
 <app-formulari-cerca (cerca)="ferCerca($event)"></app-formulari-cerca>
 
-<!-- 🔄 Estat inicial: mostra spinner mentre no hi ha terme -->
 <div *ngIf="!serveiService.termeCerca()" class="estat">
   <div class="spinner"></div>
   <p>Escriu a la cerca per trobar el que busques</p>

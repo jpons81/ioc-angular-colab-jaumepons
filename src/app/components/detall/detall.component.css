@@ -38,7 +38,6 @@
   color: #777;
 }
 
-/* Animació suau */
 @keyframes fadeIn {
   from {
     opacity: 0;

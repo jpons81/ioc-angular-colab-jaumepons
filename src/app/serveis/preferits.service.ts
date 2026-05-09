@@ -21,7 +21,7 @@ export class PreferitsService {
       if (dades) {
         const carregats = JSON.parse(dades).map((p: any) => ({
           ...p,
-          id: Number(p.id), // 🔥 important
+          id: Number(p.id),
           notes: Array.isArray(p.notes) ? p.notes : [],
         }));
 
@@ -54,7 +54,7 @@ export class PreferitsService {
     if (!this.esPreferit(element.id)) {
       const nou: ServeiCataleg = {
         ...element,
-        id: Number(element.id), // 🔥 important
+        id: Number(element.id),
         notes: Array.isArray(element.notes) ? element.notes : [],
       };
 

@@ -5,7 +5,6 @@
     <div *ngFor="let servei of preferits">
       <h4>{{ servei.serveiSolicitat }}</h4>
 
-      <!-- 🔥 SOLUCIÓ DEFINITIVA -->
       <div
         class="notes"
         *ngIf="formularis[servei.id] as formArray; else carregantFormulari"
